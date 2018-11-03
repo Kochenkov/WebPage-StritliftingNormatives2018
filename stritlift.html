@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Stritlifting</title>
+	<style type="text/css">
+	div{
+	font-size: 18px;
+	}
+	input {
+	font-size: 16px;
+	}
+	</style>
+</head>
+<body>
+
+<div style="margin:auto; text-align:center;">
+	Введите ваш вес, кг:
+	<input value="" type="text" id="form1">
+	<input value="Рассчитать" type="button" onclick="showInfo()">
+</div>
+
+<script>
+// кол-в повт = (св)*(коэф)/(вес гири)
+
+	var pullUp16 = {
+	third:1.5,
+	second:2,
+	first:2.9,
+	kms:3.5,
+	}
+	var pullUp24 = {
+	third:1.7,
+	second:2.5,
+	first:3.8,
+	kms:4.3,
+	ms:5.7,
+	msmk:6.7
+	}
+	var pullUp32 = {
+	third:1.8,
+	second:2.5,
+	first:3.8,
+	kms:4.8,
+	ms:6.2,
+	msmk:7.6
+	}
+	var dips16 = {
+	third:3.8,
+	second:5,
+	first:6.5,
+	kms:7.9
+	}
+	var dips24 = {
+	third:4.3,
+	second:5.6,
+	first:7.3,
+	kms:8.9,
+	ms:11.3,
+	msmk:15
+	}
+	var dips32 = {
+	third:4.7,
+	second:6.2,
+	first:8.1,
+	kms:10.3,
+	ms:13,
+	msmk:18
+	}
+
+	function showInfo() {
+		var mass = form1.value;
+		mass = mass *1;
+		
+		if ((isNaN(mass)==false)&&(mass<200)) {
+		
+		var kp = {};
+		
+		//pullUps
+		
+		kp.third16 = Math.ceil(mass*pullUp16.third/16);
+		kp.second16 = Math.ceil(mass*pullUp16.second/16);
+		kp.first16 = Math.ceil(mass*pullUp16.first/16);
+		kp.kms16 = Math.ceil(mass*pullUp16.kms/16);
+		
+		kp.third24 = Math.ceil(mass*pullUp24.third/24);
+		kp.second24 = Math.ceil(mass*pullUp24.second/24);
+		kp.first24 = Math.ceil(mass*pullUp24.first/24);
+		kp.kms24 = Math.ceil(mass*pullUp24.kms/24);
+		kp.ms24 = Math.ceil(mass*pullUp24.ms/24);
+		kp.msmk24 = Math.ceil(mass*pullUp24.msmk/24);
+		
+		kp.third32 = Math.ceil(mass*pullUp32.third/32);
+		kp.second32 = Math.ceil(mass*pullUp32.second/32);
+		kp.first32 = Math.ceil(mass*pullUp32.first/32);
+		kp.kms32 = Math.ceil(mass*pullUp32.kms/32);
+		kp.ms32 = Math.ceil(mass*pullUp32.ms/32);
+		kp.msmk32 = Math.ceil(mass*pullUp32.msmk/32);
+		
+		//dips
+		
+		kp.Dthird16 = Math.ceil(mass*dips16.third/16);
+		kp.Dsecond16 = Math.ceil(mass*dips16.second/16);
+		kp.Dfirst16 = Math.ceil(mass*dips16.first/16);
+		kp.Dkms16 = Math.ceil(mass*dips16.kms/16);
+		
+		kp.Dthird24 = Math.ceil(mass*dips24.third/24);
+		kp.Dsecond24 = Math.ceil(mass*dips24.second/24);
+		kp.Dfirst24 = Math.ceil(mass*dips24.first/24);
+		kp.Dkms24 = Math.ceil(mass*dips24.kms/24);
+		kp.Dms24 = Math.ceil(mass*dips24.ms/24);
+		kp.Dmsmk24 = Math.ceil(mass*dips24.msmk/24);
+		
+		kp.Dthird32 = Math.ceil(mass*dips32.third/32);
+		kp.Dsecond32 = Math.ceil(mass*dips32.second/32);
+		kp.Dfirst32 = Math.ceil(mass*dips32.first/32);
+		kp.Dkms32 = Math.ceil(mass*dips32.kms/32);
+		kp.Dms32 = Math.ceil(mass*dips32.ms/32);
+		kp.Dmsmk32 = Math.ceil(mass*dips32.msmk/32);
+		
+		//html
+		
+		document.getElementById('pullUp16-3').innerHTML = kp.third16;
+		document.getElementById('pullUp16-2').innerHTML = kp.second16;
+		document.getElementById('pullUp16-1').innerHTML = kp.first16;
+		document.getElementById('pullUp16-kms').innerHTML = kp.kms16;
+		document.getElementById('pullUp16-ms').innerHTML = '-';
+		document.getElementById('pullUp16-msmk').innerHTML = '-';
+		
+		document.getElementById('pullUp24-3').innerHTML = kp.third24;
+		document.getElementById('pullUp24-2').innerHTML = kp.second24;
+		document.getElementById('pullUp24-1').innerHTML = kp.first24;
+		document.getElementById('pullUp24-kms').innerHTML = kp.kms24;
+		document.getElementById('pullUp24-ms').innerHTML = kp.ms24;
+		document.getElementById('pullUp24-msmk').innerHTML = kp.msmk24;
+		
+		document.getElementById('pullUp32-3').innerHTML = kp.third32;
+		document.getElementById('pullUp32-2').innerHTML = kp.second32;
+		document.getElementById('pullUp32-1').innerHTML = kp.first32;
+		document.getElementById('pullUp32-kms').innerHTML = kp.kms32;
+		document.getElementById('pullUp32-ms').innerHTML = kp.ms32;
+		document.getElementById('pullUp32-msmk').innerHTML = kp.msmk32;
+		
+		document.getElementById('dips16-3').innerHTML = kp.Dthird16;
+		document.getElementById('dips16-2').innerHTML = kp.Dsecond16;
+		document.getElementById('dips16-1').innerHTML = kp.Dfirst16;
+		document.getElementById('dips16-kms').innerHTML = kp.Dkms16;
+		document.getElementById('dips16-ms').innerHTML = '-';
+		document.getElementById('dips16-msmk').innerHTML = '-';
+		
+		document.getElementById('dips24-3').innerHTML = kp.Dthird24;
+		document.getElementById('dips24-2').innerHTML = kp.Dsecond24;
+		document.getElementById('dips24-1').innerHTML = kp.Dfirst24;
+		document.getElementById('dips24-kms').innerHTML = kp.Dkms24;
+		document.getElementById('dips24-ms').innerHTML = kp.Dms24;
+		document.getElementById('dips24-msmk').innerHTML = kp.Dmsmk24;
+		
+		document.getElementById('dips32-3').innerHTML = kp.Dthird32;
+		document.getElementById('dips32-2').innerHTML = kp.Dsecond32;
+		document.getElementById('dips32-1').innerHTML = kp.Dfirst32;
+		document.getElementById('dips32-kms').innerHTML = kp.Dkms32;
+		document.getElementById('dips32-ms').innerHTML = kp.Dms32;
+		document.getElementById('dips32-msmk').innerHTML = kp.Dmsmk32;
+		}
+		
+		else {alert('No way! Вы ввели некорректные данные >__< Программа воспринимает только числа от 0 до 200. Дробные числа вводите через точку.')}
+	}
+</script>
+<div style="text-align: center;">
+<p>Нормативы по колличеству подтягиваний для различных уровней:</p>
+<table border=1 style="margin:auto;">
+  <tr>
+    <td>Вес</td>
+	<td>3 разряд</td>
+	<td>2 разряд</td>
+	<td>1 разряд</td>
+	<td>КМС</td>
+	<td>МС</td>
+	<td>МСМК</td>
+  </tr>
+  <tr>
+    <td>16 кг</td>
+	<td id='pullUp16-3'></td>
+	<td id='pullUp16-2'></td>
+	<td id='pullUp16-1'></td>
+	<td id='pullUp16-kms'></td>
+	<td id='pullUp16-ms'></td>
+	<td id='pullUp16-msmk'></td>
+  </tr>
+  <tr>
+    <td>24 кг</td>
+	<td id='pullUp24-3'></td>
+	<td id='pullUp24-2'></td>
+	<td id='pullUp24-1'></td>
+	<td id='pullUp24-kms'></td>
+	<td id='pullUp24-ms'></td>
+	<td id='pullUp24-msmk'></td>
+  </tr>
+  <tr>
+    <td>32 кг</td>
+	<td id='pullUp32-3'></td>
+	<td id='pullUp32-2'></td>
+	<td id='pullUp32-1'></td>
+	<td id='pullUp32-kms'></td>
+	<td id='pullUp32-ms'></td>
+	<td id='pullUp32-msmk'></td>
+  </tr>
+</table>
+
+<p>Нормативы по колличеству отжиманий на брусьях для различных уровней:</p>
+<table border=1 style="margin:auto;">
+  <tr>
+    <td>Вес</td>
+	<td>3 разряд</td>
+	<td>2 разряд</td>
+	<td>1 разряд</td>
+	<td>КМС</td>
+	<td>МС</td>
+	<td>МСМК</td>
+  </tr>
+  <tr>
+    <td>16 кг</td>
+	<td id='dips16-3'></td>
+	<td id='dips16-2'></td>
+	<td id='dips16-1'></td>
+	<td id='dips16-kms'></td>
+	<td id='dips16-ms'></td>
+	<td id='dips16-msmk'></td>
+  </tr>
+  <tr>
+    <td>24 кг</td>
+	<td id='dips24-3'></td>
+	<td id='dips24-2'></td>
+	<td id='dips24-1'></td>
+	<td id='dips24-kms'></td>
+	<td id='dips24-ms'></td>
+	<td id='dips24-msmk'></td>
+  </tr>
+  <tr>
+    <td>32 кг</td>
+	<td id='dips32-3'></td>
+	<td id='dips32-2'></td>
+	<td id='dips32-1'></td>
+	<td id='dips32-kms'></td>
+	<td id='dips32-ms'></td>
+	<td id='dips32-msmk'></td>
+  </tr>
+</table>
+</div>
+<div style=" text-align: center; padding:10px; position: fixed; left:0; bottom:0; width:100%">
+&copy Kochenkov Vladislav
+</div>
+</body>
+</html>
